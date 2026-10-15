@@ -1,0 +1,181 @@
+{
+  "cardiovascular": {
+    "hypertension": {
+      "typical_presentation": "Elevated blood pressure, often asymptomatic; may include headache, dizziness, shortness of breath",
+      "common_medications": ["Lisinopril", "Amlodipine", "Metoprolol", "Hydrochlorothiazide"],
+      "avoid_or_caution": ["NSAIDs", "Decongestants"],
+      "severity_if_untreated": "HIGH",
+      "notes": "Leading risk factor for stroke, heart attack, and kidney disease"
+    },
+    "heart_failure": {
+      "typical_presentation": "Shortness of breath, fatigue, leg swelling, reduced exercise tolerance",
+      "common_medications": ["Furosemide", "Lisinopril", "Metoprolol", "Spironolactone"],
+      "avoid_or_caution": ["NSAIDs", "Thiazolidinediones"],
+      "severity_if_untreated": "CRITICAL",
+      "notes": "NSAIDs antagonize diuretics and ACE inhibitors; major cause of decompensation"
+    },
+    "coronary_artery_disease": {
+      "typical_presentation": "Angina (chest pain with exertion), shortness of breath, fatigue",
+      "common_medications": ["Aspirin", "Metoprolol", "Atorvastatin", "Nitroglycerin"],
+      "avoid_or_caution": ["NSAIDs (especially diclofenac)"],
+      "severity_if_untreated": "CRITICAL",
+      "notes": "NSAIDs increase cardiovascular event risk; diclofenac has highest risk"
+    },
+    "atrial_fibrillation": {
+      "typical_presentation": "Irregular heartbeat, palpitations, shortness of breath, fatigue, increased stroke risk",
+      "common_medications": ["Warfarin", "Apixaban", "Metoprolol", "Digoxin"],
+      "avoid_or_caution": ["NSAIDs (bleeding risk with anticoagulants)"],
+      "severity_if_untreated": "HIGH",
+      "notes": "5-fold increased stroke risk; anticoagulation is cornerstone of management"
+    },
+    "hyperlipidemia": {
+      "typical_presentation": "Asymptomatic; elevated cholesterol on lab testing",
+      "common_medications": ["Atorvastatin", "Simvastatin", "Rosuvastatin"],
+      "avoid_or_caution": [],
+      "severity_if_untreated": "MODERATE",
+      "notes": "Major modifiable risk factor for cardiovascular disease"
+    }
+  },
+  "respiratory": {
+    "asthma": {
+      "typical_presentation": "Wheezing, shortness of breath, chest tightness, coughing (especially at night)",
+      "common_medications": ["Albuterol", "Fluticasone", "Montelukast"],
+      "avoid_or_caution": ["Beta-blockers (can cause bronchospasm)", "NSAIDs (in aspirin-exacerbated respiratory disease)"],
+      "severity_if_untreated": "HIGH",
+      "notes": "NSAIDs can trigger severe attacks in AERD patients (Samter's triad)"
+    },
+    "copd": {
+      "typical_presentation": "Chronic cough, sputum production, progressive shortness of breath",
+      "common_medications": ["Tiotropium", "Albuterol", "Inhaled corticosteroids"],
+      "avoid_or_caution": ["Beta-blockers (caution in severe COPD)", "NSAIDs (if aspirin-sensitive)"],
+      "severity_if_untreated": "HIGH",
+      "notes": "Smoking is primary cause; leading cause of morbidity worldwide"
+    },
+    "allergic_rhinitis": {
+      "typical_presentation": "Sneezing, runny nose, nasal congestion, itchy eyes",
+      "common_medications": ["Cetirizine", "Loratadine", "Fluticasone nasal"],
+      "avoid_or_caution": [],
+      "severity_if_untreated": "LOW",
+      "notes": "Common; can significantly impact quality of life"
+    }
+  },
+  "endocrine_metabolic": {
+    "diabetes_type_2": {
+      "typical_presentation": "Increased thirst, frequent urination, fatigue, blurred vision, slow wound healing",
+      "common_medications": ["Metformin", "Sitagliptin", "Empagliflozin", "Insulin"],
+      "avoid_or_caution": ["Thiazolidinediones (heart failure caution)", "High-dose corticosteroids"],
+      "severity_if_untreated": "HIGH",
+      "notes": "Leading cause of kidney failure, blindness, and non-traumatic amputations"
+    },
+    "hypothyroidism": {
+      "typical_presentation": "Fatigue, weight gain, cold intolerance, constipation, depression",
+      "common_medications": ["Levothyroxine"],
+      "avoid_or_caution": [],
+      "severity_if_untreated": "MODERATE",
+      "notes": "Very common; untreated can cause myxedema coma in severe cases"
+    }
+  },
+  "gastrointestinal": {
+    "gastroesophageal_reflux_disease": {
+      "typical_presentation": "Heartburn, regurgitation, chest pain, chronic cough",
+      "common_medications": ["Omeprazole", "Pantoprazole", "Famotidine"],
+      "avoid_or_caution": [],
+      "severity_if_untreated": "MODERATE",
+      "notes": "Chronic untreated GERD can lead to Barrett's esophagus and esophageal cancer"
+    },
+    "peptic_ulcer_disease": {
+      "typical_presentation": "Burning stomach pain, bloating, nausea, may be asymptomatic",
+      "common_medications": ["Omeprazole", "Amoxicillin", "Clarithromycin", "Sucralfate"],
+      "avoid_or_caution": ["NSAIDs", "Aspirin (high doses)"],
+      "severity_if_untreated": "HIGH",
+      "notes": "H. pylori infection and NSAIDs are primary causes; can lead to bleeding/perforation"
+    },
+    "ibs": {
+      "typical_presentation": "Abdominal pain, bloating, altered bowel habits (diarrhea, constipation, or mixed)",
+      "common_medications": ["Dicyclomine", "Loperamide", "Fiber supplements", "Rifaximin"],
+      "avoid_or_caution": ["NSAIDs (can worsen symptoms)", "Antibiotics (may trigger flare)"],
+      "severity_if_untreated": "LOW",
+      "notes": "Chronic condition; symptom triggers vary by patient"
+    }
+  },
+  "renal": {
+    "chronic_kidney_disease": {
+      "typical_presentation": "Often asymptomatic until advanced; fatigue, swelling, changes in urination",
+      "common_medications": ["ACE inhibitors/ARBs for proteinuria", "Erythropoietin", "Phosphate binders"],
+      "avoid_or_caution": ["NSAIDs (can cause acute kidney injury)", "Metformin (if severe renal impairment)", "Many drugs requiring renal dose adjustment"],
+      "severity_if_untreated": "CRITICAL",
+      "notes": "NSAIDs are particularly dangerous in CKD; many medications require dose adjustment"
+    },
+    "nephrolithiasis": {
+      "typical_presentation": "Flank pain, blood in urine, nausea, painful urination",
+      "common_medications": ["Pain management", "Alpha-blockers for passage", "Thiazides (for calcium stones prevention)"],
+      "avoid_or_caution": [],
+      "severity_if_untreated": "MODERATE",
+      "notes": "Calcium oxalate most common type; hydration is key preventive measure"
+    }
+  },
+  "neurological_psychiatric": {
+    "depression": {
+      "typical_presentation": "Persistent low mood, loss of interest, fatigue, sleep/appetite changes, thoughts of self-harm",
+      "common_medications": ["Sertraline", "Citalopram", "Escitalopram", "Bupropion"],
+      "avoid_or_caution": ["Multiple SSRIs (serotonin syndrome risk)", "MAO inhibitors (serious interaction)"],
+      "severity_if_untreated": "HIGH",
+      "notes": "Leading cause of disability worldwide; can be life-threatening with suicidal ideation"
+    },
+    "generalized_anxiety_disorder": {
+      "typical_presentation": "Excessive worry, restlessness, muscle tension, sleep disturbance, irritability",
+      "common_medications": ["Sertraline", "Escitalopram", "Buspirone", "Benzodiazepines (short-term)"],
+      "avoid_or_caution": ["Multiple serotonergic drugs"],
+      "severity_if_untreated": "MODERATE",
+      "notes": "Common and often co-occurs with depression"
+    },
+    "epilepsy": {
+      "typical_presentation": "Recurrent seizures; types vary widely",
+      "common_medications": ["Levetiracetam", "Valproate", "Lamotrigine", "Carbamazepine"],
+      "avoid_or_caution": ["Many drug interactions with antiepileptics", "Drugs that lower seizure threshold (e.g., some antidepressants, tramadol)"],
+      "severity_if_untreated": "CRITICAL",
+      "notes": "Many drug interactions; carbamazepine is a potent enzyme inducer"
+    }
+  },
+  "hematology_oncology": {
+    "iron_deficiency_anemia": {
+      "typical_presentation": "Fatigue, weakness, pale skin, shortness of breath, cold hands/feet",
+      "common_medications": ["Iron supplements", "Vitamin C (to enhance absorption)"],
+      "avoid_or_caution": ["Calcium supplements (reduce iron absorption when taken together)", "NSAIDs (if due to GI bleeding)"],
+      "severity_if_untreated": "MODERATE",
+      "notes": "Most common nutritional deficiency worldwide; investigate underlying cause"
+    }
+  },
+  "infectious_disease": {
+    "hiv": {
+      "typical_presentation": "Variable; may be asymptomatic or flu-like acute infection; long-term immunosuppression",
+      "common_medications": ["Tenofovir/Emtricitabine/Dolutegravir (Biktarvy)", "Other ART combinations"],
+      "avoid_or_caution": ["Many drug interactions with ART", "NSAIDs (renal caution with tenofovir)", "Numerous contraindicated combinations"],
+      "severity_if_untreated": "CRITICAL",
+      "notes": "Effective ART allows near-normal life expectancy; extensive drug interaction profile"
+    },
+    "hepatitis_c": {
+      "typical_presentation": "Often asymptomatic; fatigue, jaundice, abdominal pain if symptomatic",
+      "common_medications": ["Sofosbuvir/Velpatasvir", "Glecaprevir/Pibrentasvir"],
+      "avoid_or_caution": ["Alcohol", "Many drug interactions with DAAs"],
+      "severity_if_untreated": "HIGH",
+      "notes": "Now curable with direct-acting antivirals; liver disease progression without treatment"
+    }
+  },
+  "musculoskeletal": {
+    "osteoporosis": {
+      "typical_presentation": "Often asymptomatic until fracture; vertebral, hip, and wrist fractures most common",
+      "common_medications": ["Alendronate", "Risedronate", "Denosumab", "Teriparatide"],
+      "avoid_or_caution": [],
+      "severity_if_untreated": "HIGH",
+      "notes": "Major cause of morbidity in elderly; hip fractures have high mortality"
+    },
+    "rheumatoid_arthritis": {
+      "typical_presentation": "Joint pain, swelling, stiffness (especially morning), symmetric pattern",
+      "common_medications": ["Methotrexate", "Adalimumab", "Etanercept", "NSAIDs (symptom control)"],
+      "avoid_or_caution": ["Live vaccines with immunosuppressants"],
+      "severity_if_untreated": "HIGH",
+      "notes": "Autoimmune disease; can cause joint destruction and systemic complications"
+    }
+  }
+}

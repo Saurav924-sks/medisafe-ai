@@ -1,0 +1,9 @@
+{
+  "name": "medisafe-ai",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "dev:backend": "cd frontend/backend && python -m alembic upgrade head && python -m uvicorn main:app --host 0.0.0.0 --port 8000",
+    "dev:frontend": "npm --prefix frontend run dev -- --host 0.0.0.0 --port 5173"
+  }
+}

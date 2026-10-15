@@ -1,0 +1,172 @@
+{
+  "manifest": {
+    "dataset": "medisafe-clinical",
+    "version": "1",
+    "source": "Existing prototype knowledge graph",
+    "source_version": "legacy-unversioned",
+    "effective_date": null,
+    "last_reviewed": null,
+    "evidence_reference": "Prototype entries carry inline evidence text; no source citation identifiers or clinical review record were present in the legacy graph.",
+    "review_status": "NOT_REVIEWED",
+    "review_note": "prototype data — not clinically reviewed",
+    "checksum": "sha256:211db70bcdbd722178677ec6c2361923b5804333f2b381a4df0280eafda03b4f"
+  },
+  "data": {
+    "drugs": {
+      "Warfarin": {
+        "class": "Anticoagulant",
+        "active_ingredient": "Warfarin"
+      },
+      "Aspirin": {
+        "class": "NSAID/Antiplatelet",
+        "active_ingredient": "Acetylsalicylic acid"
+      },
+      "Ibuprofen": {
+        "class": "NSAID",
+        "active_ingredient": "Ibuprofen"
+      },
+      "Amoxicillin": {
+        "class": "Penicillin Antibiotic",
+        "active_ingredient": "Amoxicillin"
+      },
+      "Penicillin": {
+        "class": "Penicillin Antibiotic",
+        "active_ingredient": "Penicillin"
+      },
+      "Paracetamol": {
+        "class": "Analgesic",
+        "active_ingredient": "Acetaminophen",
+        "max_daily_dose_mg": 4000
+      },
+      "Lisinopril": {
+        "class": "ACE Inhibitor",
+        "active_ingredient": "Lisinopril"
+      }
+    },
+    "drug_drug_interactions": [
+      {
+        "drug_a": "Warfarin",
+        "drug_b": "Aspirin",
+        "severity": "HIGH",
+        "reason": "Increased risk of severe bleeding. Both drugs affect blood clotting through different mechanisms.",
+        "evidence": "FDA Labeling: Concurrent use of anticoagulants and antiplatelets significantly increases bleeding risk."
+      },
+      {
+        "drug_a": "Ibuprofen",
+        "drug_b": "Lisinopril",
+        "severity": "MODERATE",
+        "reason": "NSAIDs can reduce the antihypertensive effect of ACE inhibitors and increase the risk of renal impairment.",
+        "evidence": "Clinical Pharmacology: NSAIDs inhibit prostaglandin synthesis, counteracting ACE inhibitor benefits."
+      }
+    ],
+    "drug_disease_contraindications": [
+      {
+        "drug": "Ibuprofen",
+        "disease": "Hypertension",
+        "severity": "HIGH",
+        "reason": "NSAIDs can cause fluid retention and elevate blood pressure, worsening hypertension.",
+        "evidence": "AHA Guidelines: Avoid or minimize NSAID use in patients with high blood pressure."
+      },
+      {
+        "drug": "Lisinopril",
+        "disease": "Pregnancy",
+        "severity": "CRITICAL",
+        "reason": "ACE inhibitors can cause fetal toxicity and congenital abnormalities.",
+        "evidence": "FDA Black Box Warning: Discontinue as soon as pregnancy is detected."
+      }
+    ],
+    "allergy_cross_reactivity": [
+      {
+        "allergen": "Penicillin",
+        "trigger_drug": "Amoxicillin",
+        "severity": "CRITICAL",
+        "reason": "Amoxicillin is a penicillin-class antibiotic. Patients with penicillin allergy are at high risk for anaphylaxis.",
+        "evidence": "Standard Allergy Cross-Reactivity Guidelines."
+      }
+    ],
+    "duplicate_therapeutic_classes": [
+      {
+        "class": "NSAID",
+        "reason": "Taking multiple NSAIDs concurrently increases the risk of gastrointestinal bleeding and renal toxicity without added benefit.",
+        "severity": "HIGH"
+      }
+    ],
+    "duplicate_medication_rule": {
+      "severity": "MODERATE",
+      "reason": "Patient is already taking the medication. Prescribing it again may lead to overdose.",
+      "evidence": "Patient Medication History"
+    },
+    "priority_scoring": {
+      "severity_points": {
+        "CRITICAL": 40,
+        "HIGH": 25,
+        "MODERATE": 15,
+        "LOW": 5,
+        "INFORMATIONAL": 0
+      },
+      "risk_levels": [
+        {
+          "minimum": 0,
+          "maximum": 20,
+          "label": "Low"
+        },
+        {
+          "minimum": 21,
+          "maximum": 50,
+          "label": "Moderate"
+        },
+        {
+          "minimum": 51,
+          "maximum": 80,
+          "label": "High"
+        },
+        {
+          "minimum": 81,
+          "maximum": 100,
+          "label": "Critical"
+        }
+      ],
+      "max_score": 100
+    },
+    "explanation_templates": {
+      "Drug-Drug Interaction": {
+        "what_detected": "Potential drug-drug interaction detected",
+        "recommended_action": "Review concurrent use and consider alternatives, dose changes, or monitoring."
+      },
+      "Drug-Disease Interaction": {
+        "what_detected": "Configured contraindication rule matched",
+        "recommended_action": "Review the configured rule and consider a safer alternative or documented clinical justification."
+      },
+      "Allergy Conflict": {
+        "what_detected": "Configured allergy cross-reactivity rule matched",
+        "recommended_action": "Review the allergy record and select an alternative if the conflict is confirmed."
+      },
+      "Duplicate Medication": {
+        "what_detected": "Duplicate medication rule matched",
+        "recommended_action": "Verify whether the duplicate is intentional before proceeding."
+      },
+      "Therapeutic Duplicate": {
+        "what_detected": "Therapeutic duplicate rule matched",
+        "recommended_action": "Verify whether the duplicate therapy is intentional before proceeding."
+      },
+      "Dosage Error": {
+        "what_detected": "Dose verification required",
+        "recommended_action": "Verify the prescribed dose against the applicable reference before proceeding."
+      },
+      "Dosage Verification": {
+        "what_detected": "Dose verification required",
+        "recommended_action": "Verify the prescribed dose against an appropriate reference before proceeding."
+      }
+    },
+    "dosage_limit_rule": {
+      "severity": "HIGH",
+      "reason_template": "Prescribed dose ({dose} {unit}) exceeds the configured reference limit ({max_dose} mg) for {drug}.",
+      "evidence_reference": "Reference citation unavailable in the prototype source file."
+    },
+    "dosage_verification_rule": {
+      "severity": "INFORMATIONAL",
+      "reason": "Dosage could not be verified from this knowledge version.",
+      "evidence_reference": "No dose reference is configured for this medication."
+    }
+  }
+}

@@ -1,0 +1,60 @@
+# Secrets and local environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+*.key
+*.secret
+
+# Databases, backups, and local logs
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.bak
+*.bak.*
+*.backup
+*.backup.*
+*.dump
+*.dump.*
+*.sql
+*.sql.gz
+*.sql.*
+*.log
+*.log.*
+*.out
+*.trace
+logs/
+secrets/
+
+# Python environments, bytecode, and test/tool caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Node dependencies, generated builds, and frontend caches
+node_modules/
+dist/
+build/
+coverage/
+.vite/
+
+# Local container database volume
+postgres_data/
+
+# Local package caches
+/pip-cache/

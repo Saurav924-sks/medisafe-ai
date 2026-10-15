@@ -1,0 +1,59 @@
+{
+  "drugs": {
+    "Warfarin": {"class": "Anticoagulant", "active_ingredient": "Warfarin"},
+    "Aspirin": {"class": "NSAID/Antiplatelet", "active_ingredient": "Acetylsalicylic acid"},
+    "Ibuprofen": {"class": "NSAID", "active_ingredient": "Ibuprofen"},
+    "Amoxicillin": {"class": "Penicillin Antibiotic", "active_ingredient": "Amoxicillin"},
+    "Penicillin": {"class": "Penicillin Antibiotic", "active_ingredient": "Penicillin"},
+    "Paracetamol": {"class": "Analgesic", "active_ingredient": "Acetaminophen", "max_daily_dose_mg": 4000},
+    "Lisinopril": {"class": "ACE Inhibitor", "active_ingredient": "Lisinopril"}
+  },
+  "drug_drug_interactions": [
+    {
+      "drug_a": "Warfarin",
+      "drug_b": "Aspirin",
+      "severity": "HIGH",
+      "reason": "Increased risk of severe bleeding. Both drugs affect blood clotting through different mechanisms.",
+      "evidence": "FDA Labeling: Concurrent use of anticoagulants and antiplatelets significantly increases bleeding risk."
+    },
+    {
+      "drug_a": "Ibuprofen",
+      "drug_b": "Lisinopril",
+      "severity": "MODERATE",
+      "reason": "NSAIDs can reduce the antihypertensive effect of ACE inhibitors and increase the risk of renal impairment.",
+      "evidence": "Clinical Pharmacology: NSAIDs inhibit prostaglandin synthesis, counteracting ACE inhibitor benefits."
+    }
+  ],
+  "drug_disease_contraindications": [
+    {
+      "drug": "Ibuprofen",
+      "disease": "Hypertension",
+      "severity": "HIGH",
+      "reason": "NSAIDs can cause fluid retention and elevate blood pressure, worsening hypertension.",
+      "evidence": "AHA Guidelines: Avoid or minimize NSAID use in patients with high blood pressure."
+    },
+    {
+      "drug": "Lisinopril",
+      "disease": "Pregnancy",
+      "severity": "CRITICAL",
+      "reason": "ACE inhibitors can cause fetal toxicity and congenital abnormalities.",
+      "evidence": "FDA Black Box Warning: Discontinue as soon as pregnancy is detected."
+    }
+  ],
+  "allergy_cross_reactivity": [
+    {
+      "allergen": "Penicillin",
+      "trigger_drug": "Amoxicillin",
+      "severity": "CRITICAL",
+      "reason": "Amoxicillin is a penicillin-class antibiotic. Patients with penicillin allergy are at high risk for anaphylaxis.",
+      "evidence": "Standard Allergy Cross-Reactivity Guidelines."
+    }
+  ],
+  "duplicate_therapeutic_classes": [
+    {
+      "class": "NSAID",
+      "reason": "Taking multiple NSAIDs concurrently increases the risk of gastrointestinal bleeding and renal toxicity without added benefit.",
+      "severity": "HIGH"
+    }
+  ]
+}
