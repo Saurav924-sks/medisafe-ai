@@ -7,10 +7,31 @@ from pydantic import Field
 from pydantic_settings import BaseSettings
 from sqlalchemy.engine import make_url
 
-# Local layout is <repo>/frontend/backend/app/core/config.py. Docker receives
-# the same values through Compose environment variables, so the file is optional.
-ROOT_ENV_FILE = Path(__file__).resolve().parents[4] / ".env"
-load_dotenv(ROOT_ENV_FILE)
+def discover_root_env_file(config_file: str | Path = __file__) -> Path | None:
+    """Find only this project's root .env; packaged deployments may omit it."""
+    config_path = Path(config_file).resolve()
+    expected_relative_path = Path("frontend") / "backend" / "app" / "core" / "config.py"
+
+    for candidate_root in config_path.parents:
+        try:
+            relative_config_path = config_path.relative_to(candidate_root)
+        except ValueError:
+            continue
+        if relative_config_path != expected_relative_path:
+            continue
+        if not (candidate_root / ".env.example").is_file():
+            return None
+        if not (candidate_root / "frontend" / "backend" / "requirements.txt").is_file():
+            return None
+        env_file = candidate_root / ".env"
+        return env_file if env_file.is_file() else None
+    return None
+
+
+ROOT_ENV_FILE = discover_root_env_file()
+if ROOT_ENV_FILE is not None:
+    # Environment provided by the host must take precedence over the local file.
+    load_dotenv(ROOT_ENV_FILE, override=False)
 
 
 class Settings(BaseSettings):

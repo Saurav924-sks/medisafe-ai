@@ -293,4 +293,16 @@
 - `docker compose config --quiet`: **passed**.
 - Pylance syntax checks for `seed_staging.py`, its tests, `config.py`, and `main.py`: **no syntax errors**.
 - PostgreSQL migrations and Render deployment remain unverified; no database migration was run against any external service.
-- `git diff --check` cannot run without `.git`; changed-file trailing-whitespace scan — **passed**.
+- `git diff --check` — **passed**; changed-file trailing-whitespace scan — **passed**. Git status also confirms the local `.env` and SQLite databases are ignored; this repository is now present on branch `main`.
+
+## 2026-10-15: Optional root environment-file discovery
+
+**Status: DONE for the Render startup crash and regression coverage.**
+
+- Root cause: `config.py` indexed `Path(__file__).resolve().parents[4]` unconditionally. In the Docker image, the file is `/app/app/core/config.py`, whose parent list has no index 4.
+- Replaced the fixed index with a bounded discovery function that recognizes only the repository's exact `frontend/backend/app/core/config.py` layout and requires both `.env.example` and backend `requirements.txt` markers. The `.env` itself is optional. `load_dotenv(..., override=False)` preserves host environment precedence. The Docker layout does not match the local project layout, so it does not search upward into an unrelated `.env`.
+- Added isolated tests for local root `.env` discovery, absent/unrelated `.env` files (including Docker-style layout), and host environment settings.
+- Added `pythonpath = .` to `frontend/backend/pytest.ini`; running the requested root-level backend test path had initially failed collection with `ModuleNotFoundError: No module named 'app'`.
+- Validation: `python -m pytest -q frontend\\backend\\tests` — **86 passed, 4 warnings**; root `pytest -q` — **91 passed, 4 warnings**; frontend tests — **12 passed**; frontend lint — **passed**; frontend build — **passed**. Local `ROOT_ENV_FILE` was discovered and exists; no environment values were printed.
+- Docker Desktop could not start (`Docker Desktop is unable to start`), so no container build/import validation was possible. The regression test covers the Docker image path behavior without Docker.
+- Changed-file whitespace scan — **passed**. No `.env` or database file was modified.
